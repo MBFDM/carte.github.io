@@ -353,7 +353,7 @@
             </div>
             
             <div class="qr-section">
-                <div id="qrcode" class="qr-code"></div>
+                <div id="qrcode" class="qr-code" style="width:150px; height:150px;"></div>
                 <div class="qr-label">Scannez pour enregistrer mes coordonnées</div>
             </div>
             
@@ -383,8 +383,42 @@
             <div class="watermark">AGC-VIE © 2025</div>
         </div>
     </div>
+    <script src="app.js"></script>
 
     <script>
+        // Données de la carte de visite
+        const contactData = {
+            company: "ASSURANCES GENERALES DU CONCO-VIE",
+            membership: "MEMBRE DU RESEARCH CLOSIS",
+            network: "Globus",
+            phone1: "+242 06 184 82 04",
+            phone2: "+237 654 48 45 24",
+            address: "62 Rue Piscine, Brazzaville, Congo",
+            email: "bayonnefrederic09@gmail.com",
+            name: "Frédércic BAYONNE",
+            title: "Ingénieur en Génie Numérique",
+            photo: "photo-profile.png",
+            social: {
+                linkedin: "https://www.linkedin.com/in/fr%C3%A9d%C3%A9ric-bayonne-5952b224b/",
+                github: "https://github.com/MBFDM/",
+                twitter: "https://x.com/home",
+            }
+        };
+        // Générer le QR Code avec les informations de contact
+        function generateQRCode() {
+            const vcard = `BEGIN:VCARD
+VERSION:3.0
+FN:${contactData.name}
+ORG:${contactData.company}
+TITLE:${contactData.title}
+TEL;TYPE=WORK,VOICE:${contactData.phone1}
+TEL;TYPE=WORK,VOICE:${contactData.phone2}
+EMAIL;TYPE=PERSONAL,INTERNET:${contactData.email1}
+EMAIL;TYPE=WORK,INTERNET:${contactData.email2}
+ADR;TYPE=WORK:${contactData.address}
+NOTE:${contactData.membership} - ${contactData.network}
+PHOTO;VALUE=URI:${contactData.photo}
+END:VCARD`;
 
         // Remplace cette URL par celle que tu veux encoder en QR code
         const url = "https://mbfdm.github.io/carte.github.io/";
@@ -396,6 +430,8 @@
             colorLight: "#ffffff",
             correctLevel: QRCode.CorrectLevel.H
         });
+
+        }
         
         
         // Enregistrer dans les contacts
