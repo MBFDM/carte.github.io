@@ -30,7 +30,7 @@
             justify-content: center;
             align-items: center;
             min-height: 100vh;
-            background: linear-gradient(135deg, #6577b3 0%, #09024b 100%);
+            background: linear-gradient(135deg, #ffffff 100%, #ffffff 100%);
             padding: 20px;
             color: var(--text-color);
         }
@@ -39,7 +39,7 @@
             width: 100%;
             max-width: 420px;
             background: white;
-            border-radius: 12px;
+            border-radius: 30px;
             box-shadow: 0 50px 80px rgba(0, 0, 0, 0.15);
             overflow: hidden;
             position: relative;
@@ -63,9 +63,9 @@
         }
 
         .card-header-1 {
-            background: linear-gradient(135deg, #050455 0%, #b80c0c 100%);
+            background: linear-gradient(135deg, #009640 0%, #000033 100%);
             color: white;
-            padding: 25px;
+            padding: 20px;
             position: relative;
             overflow: hidden;
             display: flex;
@@ -73,6 +73,28 @@
             align-items: center;
         }
         .card-header-1::after {
+            content: '';
+            position: absolute;
+            bottom: -50px;
+            right: -50px;
+            width: 100px;
+            height: 100px;
+            background: rgba(255, 255, 255, 0.253);
+            border-radius: 50%;
+        }
+
+        .card-header-2 {
+            background: linear-gradient(135deg, #009640 0%, #000033 100%);
+            color: white;
+            padding: 5px;
+            position: relative;
+            overflow: hidden;
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+        }
+
+        .card-header-2::after {
             content: '';
             position: absolute;
             bottom: -50px;
@@ -96,7 +118,7 @@
             font-size: 14px;
             opacity: 0.9;
             margin-bottom: 3px;
-            color: #4e3e3a;
+            color: #141853;
             text-align: right;
             flex: 1;
             
@@ -374,11 +396,18 @@
             <br>
             <div class="watermark">AGC-VIE © 2025</div>
         </div>
+        <div class="card-header-2">
+            <div class="company-sub">
+            </div>
+        </div>
     </div>
 
     <script>
-        // Données de la carte de visite
+        // Données de la carte de visite f3cf06
         const contactData = {
+            company: "ASSURANCES GENERALES DU CONCO-VIE",
+            membership: "MEMBRE DU RESEAU",
+            network: "Globus",
             phone1: "+242 06 631 39 41",
             phone2: "+242 05 540 88 10",
             address: "BP.: 1110 Brazzaville, Avenue Amilcar Cabral Centre-ville",
@@ -395,13 +424,14 @@
             const vcard = `BEGIN:VCARD
 VERSION:3.0
 FN:${contactData.name}
+ORG:${contactData.name} - ${contactData.company}
 TITLE:${contactData.title}
 TEL;TYPE=WORK,VOICE:${contactData.phone1}
 TEL;TYPE=WORK,VOICE:${contactData.phone2}
 EMAIL;TYPE=PERSONAL,INTERNET:${contactData.email1}
 EMAIL;TYPE=WORK,INTERNET:${contactData.email2}
 ADR;TYPE=WORK:${contactData.address}
-NOTE:${contactData.name}
+NOTE:${contactData.membership} - ${contactData.network}
 PHOTO;VALUE=URI:${contactData.photo}
 END:VCARD`;
             
