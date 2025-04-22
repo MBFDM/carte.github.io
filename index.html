@@ -10,8 +10,8 @@
         :root {
             --primary-color_1: #ffffff;
             --primary-color: #112a50;
-            --secondary-color: #e74c3c;
-            --accent-color: #25D366;
+            --secondary-color: #c42312;
+            --accent-color: #009640;
             --text-color: #333;
             --light-gray: #f8f9fa;
             --medium-gray: #e1e1e1;
@@ -78,7 +78,7 @@
             bottom: -50px;
             right: -50px;
             width: 100px;
-            height: 100px;
+            height: 80px;
             background: rgba(255, 255, 255, 0.253);
             border-radius: 50%;
         }
@@ -98,11 +98,11 @@
             content: '';
             position: absolute;
             bottom: -50px;
-            right: -50px;
+            left: -50px;
             width: 100px;
-            height: 100px;
+            height: 70px;
             background: rgba(255, 255, 255, 0.253);
-            border-radius: 50%;
+            border-radius: 100%;
         }
         
         .company-name {
@@ -255,7 +255,7 @@
         }
         
         .save-contact:hover {
-            background: #1d4b8f;
+            background: #1961ce;
         }
         
         .whatsapp {
@@ -263,7 +263,7 @@
         }
         
         .whatsapp:hover {
-            background: #1da851;
+            background: #0ddd5a;
         }
         
         .rdv {
@@ -271,7 +271,7 @@
         }
         
         .rdv:hover {
-            background: #c0392b;
+            background: #ff1900;
         }
         
         .watermark {
@@ -416,7 +416,7 @@
             name: "Elgha MOE - MACKOSSO",
             marital: "Épouse LOUSSIKILA",
             title: "Responsable Bureau Brazza",
-            photo: "photo-profile.jpg"
+            photo: "https://ui-avatars.com/api/?name=Elgha+Moe&background=2a5ca7&color=fff&size=128"
         };
         
         // Générer le QR Code avec les informations de contact
@@ -453,12 +453,13 @@ END:VCARD`;
             const vcard = `BEGIN:VCARD
 VERSION:3.0
 FN:${contactData.name}
+ORG:${contactData.name} - ${contactData.company}
 TEL;TYPE=WORK,VOICE:${contactData.phone1}
 TEL;TYPE=WORK,VOICE:${contactData.phone2}
 EMAIL;TYPE=PERSONAL,INTERNET:${contactData.email1}
 EMAIL;TYPE=WORK,INTERNET:${contactData.email2}
 ADR;TYPE=WORK:${contactData.address}
-NOTE:${contactData.name}
+NOTE:${contactData.membership} - ${contactData.network}
 PHOTO;VALUE=URI:${contactData.photo}
 END:VCARD`;
             
