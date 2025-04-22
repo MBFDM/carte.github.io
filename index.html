@@ -30,7 +30,7 @@
             justify-content: center;
             align-items: center;
             min-height: 100vh;
-            background: linear-gradient(135deg, #8ac960 0%, #c4b84c 100%);
+            background: linear-gradient(135deg, #e0e9d9 0%, #e4e2ce 100%);
             padding: 20px;
             color: var(--text-color);
         }
@@ -40,7 +40,7 @@
             max-width: 420px;
             background: white;
             border-radius: 12px;
-            box-shadow: 0 10px 30px rgba(0, 0, 0, 0.15);
+            box-shadow: 0 50px 80px rgba(0, 0, 0, 0.15);
             overflow: hidden;
             position: relative;
             transform-style: preserve-3d;
@@ -54,7 +54,7 @@
         .card-header {
             background: var(--primary-color_1);
             color: white;
-            padding: 20px;
+            padding: 10px;
             position: relative;
             overflow: hidden;
             display: flex;
@@ -63,7 +63,7 @@
         }
 
         .card-header-1 {
-            background: var(--primary-color);
+            background: linear-gradient(135deg, #050455 0%, #b80c0c 100%);
             color: white;
             padding: 25px;
             position: relative;
@@ -96,9 +96,10 @@
             font-size: 14px;
             opacity: 0.9;
             margin-bottom: 3px;
-            color: #00B0F0;
+            color: #4e3e3a;
             text-align: right;
             flex: 1;
+            
         }
         
         .card-body {
@@ -115,8 +116,8 @@
         }
         
         .profile-img {
-            width: 90px;
-            height: 90px;
+            width: 100px;
+            height: 100px;
             border-radius: 50%;
             object-fit: cover;
             border: 3px solid var(--primary-color);
@@ -332,7 +333,7 @@
                 <div class="person-info">
                     <h2 class="person-name">Elgha MOE - MACKOSSO</h2>
                     <div class="person-marital">Épouse LOUSSIKILA</div>
-                    <div class="person-title">Inspectrice chargée du Recouvrement</div>
+                    <div class="person-title">Responsable Bureau Brazza</div>
                 </div>
             </div>
             
@@ -370,7 +371,7 @@
                     <i class="fas fa-calendar-alt"></i> RDV
                 </button>
             </div>
-            
+            <br>
             <div class="watermark">AGC-VIE © 2025</div>
         </div>
     </div>
@@ -378,9 +379,6 @@
     <script>
         // Données de la carte de visite
         const contactData = {
-            company: "ASSURANCES GENERALES DU COXCO-VIE",
-            membership: "MEMBRE DU RESEARCH CLOSIS",
-            network: "Globus",
             phone1: "+242 06 631 39 41",
             phone2: "+242 05 540 88 10",
             address: "BP.: 1110 Brazzaville, Avenue Amilcar Cabral Centre-ville",
@@ -388,8 +386,8 @@
             email2: "elgha.moemackosso@agc-vie.cg",
             name: "Elgha MOE - MACKOSSO",
             marital: "Épouse LOUSSIKILA",
-            title: "Inspectrice chargée du Recouvrement",
-            photo: "https://ui-avatars.com/api/?name=Elgha+Moe&background=2a5ca7&color=fff&size=128"
+            title: "Responsable Bureau Brazza",
+            photo: "photo-profile.jpg"
         };
         
         // Générer le QR Code avec les informations de contact
@@ -397,14 +395,13 @@
             const vcard = `BEGIN:VCARD
 VERSION:3.0
 FN:${contactData.name}
-ORG:${contactData.company}
 TITLE:${contactData.title}
 TEL;TYPE=WORK,VOICE:${contactData.phone1}
 TEL;TYPE=WORK,VOICE:${contactData.phone2}
 EMAIL;TYPE=PERSONAL,INTERNET:${contactData.email1}
 EMAIL;TYPE=WORK,INTERNET:${contactData.email2}
 ADR;TYPE=WORK:${contactData.address}
-NOTE:${contactData.membership} - ${contactData.network}
+NOTE:${contactData.name}
 PHOTO;VALUE=URI:${contactData.photo}
 END:VCARD`;
             
@@ -426,14 +423,12 @@ END:VCARD`;
             const vcard = `BEGIN:VCARD
 VERSION:3.0
 FN:${contactData.name}
-ORG:${contactData.company}
-TITLE:${contactData.title}
 TEL;TYPE=WORK,VOICE:${contactData.phone1}
 TEL;TYPE=WORK,VOICE:${contactData.phone2}
 EMAIL;TYPE=PERSONAL,INTERNET:${contactData.email1}
 EMAIL;TYPE=WORK,INTERNET:${contactData.email2}
 ADR;TYPE=WORK:${contactData.address}
-NOTE:${contactData.membership} - ${contactData.network}
+NOTE:${contactData.name}
 PHOTO;VALUE=URI:${contactData.photo}
 END:VCARD`;
             
@@ -450,7 +445,7 @@ END:VCARD`;
         
         // Ouvrir WhatsApp
         function openWhatsApp() {
-            const phone = contactData.phone1.replace(/[^0-9]/g, '');
+            const phone = contactData.phone2.replace(/[^0-9]/g, '');
             const message = encodeURIComponent(`Bonjour Mme ${contactData.name.split(' ')[0]},\n\nJe vous contacte depuis votre carte de visite AGC-VIE.\n\nPourriez-vous m'apporter votre assistance ?`);
             window.open(`https://wa.me/${phone}?text=${message}`, '_blank');
         }
